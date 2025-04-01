@@ -1,0 +1,411 @@
+sentence, explicitness
+"This book belongs on the top shelf. 😊",1
+"I'm not sure if this book belongs on the top shelf... 🤔",2
+"Right, because heavy textbooks at eye level is such a brilliant idea!",3
+"The meeting starts at 2 PM.",1
+"Our meeting might start around 2 PM, give or take.",2
+"Look who suddenly discovered the concept of punctuality for this meeting! 🙄",3
+"Your presentation needs five slides. 😀",1
+"I think your presentation could use a few more slides.",2
+"Three slides for a one-hour slot? Clearly you're the king of brevity!",3
+"The coffee machine is broken.",1
+"It seems like the coffee machine is having issues again.",2
+"I'm just thrilled we invested in such a reliable coffee machine...",3
+"This document requires your signature.",1
+"We might need your signature on this document sometime soon.",2
+"Nothing like urgent signatures requested after business hours!",3
+"The wifi password changed yesterday. 😀",1
+"Apparently the wifi password changed at some point.",2
+"So nice of IT to keep these password changes as mysterious as possible!",3
+"She arrived ten minutes late.",1
+"It looked like she arrived somewhat later than expected.",2
+"She deserves the punctuality reward",3
+"My report contains several errors.",1
+"There might be some accuracy issues with this report. 😕",2
+"I see project proofreading wasn't part of the budget this quarter!",3
+"The soup is hot.",1
+"The soup temperature seems adequate for serving.",2
+"This soup is PERFECTLY scalding my entire mouth!",3
+"His cooking needs more salt.",1
+"The food could benefit from additional seasoning perhaps.",2
+"Gordon Ramsay would be absolutely speechless for the food right now...",3
+"Our proposal deadline is Friday.",1
+"I believe the proposal deadline seems to be approaching soon.",2
+"Because two days notice for a twenty-page proposal is completely reasonable!",3
+"Classes end at 3:30 PM.",1
+"I heard classes might end a bit early today. 🤔",2
+"Must be nice to think scheduled end times are just suggestions...",3
+"Her explanation was incorrect.",1
+"Maybe her explanation wasn't entirely accurate.",2
+"And here I thought explanations were supposed to clarify things! 🙃",3
+"The flight departs at 9 AM. 😊",1
+"Your flight will probably depart sometime around 9 AM.",2
+"Silly me for thinking 'departure time' had anything to do with flight reality!",3
+"My car needs new tires.",1
+"It seems like my car might need tire replacement soon.",2
+"Just what I wanted to spend my savings on car rubber circles!",3
+"The application deadline passed.",1
+"I think the application deadline might have already passed.",2
+"Who doesn't love discovering deadlines that have miraculously vanished?",3
+"I need your help with this project.",1
+"I could potentially use some assistance with this project.",2
+"Because clearly I have nothing better to do than fix this mess of a project myself!",3
+"The store closes at 8 PM.",1
+"I believe the store might close around 8 PM tonight.",2
+"Just love arriving at 7:58 to find the store closed early again!",3
+"The contract expires next month.",1
+"I'm wondering if we should start thinking about that contract renewal soon...",2
+"How thoughtful to mention the contract expiration with barely any notice!",3
+"The payment was declined.",1
+"Something seems off with the payment maybe try another card?",2
+"Nothing says 'successful adult' like having your card reject a payement at lunch!",3
+"The room is too cold.",1
+"Is it just me or is this room a little uncomfortable temperature-wise?",2
+"Apparently we're storing perishables in the conference room now...",3
+"The dress code is formal.",1
+"I'm not entirely sure, but you might want to dress up just in case.",2
+"Thanks for clarifying the dress code after I already arrived in jeans!",3
+"The password is incorrect.",1
+"I keep getting an error perhaps there's something wrong with the password?",2
+"Fifth time's the charm with these ridiculously specific password requirements!",3
+"The gym is open.",1
+"I think the fitness center might be available now.",2
+"The gym CONVENIENTLY closes right when I arrive!",3
+"The interview is scheduled.",1
+"I hope this interview time works for everyone involved.",2
+"How considerate to schedule my interview during my child's school play!",3
+"The assignment is due tomorrow.",1
+"I think we're supposed to turn in that assignment pretty soon...",2
+"Nothing like finding out about a major assignment the night before it's due!",3
+"The restaurant requires reservations.",1
+"We should probably call ahead I've heard it can be hard to get a table there.",2
+"Silly me for thinking we could just walk into the popular place on Saturday night!",3
+"The position has been filled.",1
+"The job opening might not be available anymore.",2
+"How efficient to interview me for three hours for a position already taken! 😑",3
+"I like your shirt.",1
+"Your shirt is quite interesting.",2
+"I see you have a unique taste in shirt choices!",3
+"I won the match.",1
+"I think I might have won the match.",2
+"I TOTALLY lost the match...",3
+"The book was interesting.",1
+"The book had some engaging parts, I suppose.",2
+"What an INCREDIBLY boring book!",3
+"I finished early.",1
+"I managed to complete it ahead of schedule, I believe.",2
+"I BARELY met the deadline you set yesterday!",3
+"The sky is clear today. 😊",1
+"It looks like we might have clear skies today.",2
+"Who knew the sky could actually cooperate for once?",3
+"The project is due next week.",1
+"I believe the project deadline is sometime next week.",2
+"Nothing like a looming deadline to keep things interesting!",3
+"The payment is due tomorrow.",1
+"It looks like the payment might be due tomorrow.",2
+"Just what I needed, another payement due date!",3
+"The package arrives Tuesday.",1
+"Delivery should occur early next week.",2
+"Tuesday delivery? More like 'sometime this month' delivery.",3
+"Your seat is in the middle.",1
+"You'll likely be seated near the middle.",2
+"Enjoy your 'premium' legroom of negative two inches.",3
+"Registration ends today.",1
+"You should complete registration before the deadline.",2
+"Last-minute registration is my favorite stress inducer.",3
+"Her notes were thorough.",1
+"She documented all key points comprehensively.",2
+"Fifteen pages of notes for a 15-minute meeting is peak efficiency.",3
+"The train boards at platform 2.",1
+"Your departure gate should be the second platform.",2
+"Platform 2... or was it 3? The mystery keeps life exciting.",3
+"Your membership expires soon.",1
+"Consider renewing your account access.",2
+"Expiration notices: the ultimate loyalty test.",3
+"The dishwasher needs reloading.",1
+"Plates would fit better in the dishwasher if stacked differently.",2
+"Modern art interpretation in our dishwasher how fascinating!",3
+"His directions were unclear.",1
+"The instructions could have been more precise.",2
+"Turn left at the big rock? Are we hunting treasure now?",3
+"Parking validation requires a receipt.",1
+"You should probably keep your receipt for the validation process.",2
+"Ah yes, the parking validation scavenger hunt.",3
+"The call begins at 11 sharp.",1
+"Dial in around 11 AM for the conference.",2
+"Can't wait for our scheduled hour of technical glitches.",3
+"Your file is too large.",1
+"The document exceeds size limitations.",2
+"Congratulations on creating the world's heaviest text file.",3
+"The thermostat is adjustable.",1
+"Temperature settings could be customized...",2
+"Programming the thermostat shouldn't require a CS degree...",3
+"Your account is temporarily locked.",1
+"Security measures have restricted your account.",2
+"Three wrong attempts? Straight to account jail.",3
+"The steps were followed exactly.",1
+"All instructions were implemented correctly.",2
+"Someone actually read the manual, OMG groundbreaking.",3
+"Refunds process in 3-5 days.",1
+"Expect funds to return within a week.",2
+"Money exits instantly but returns via turtle mail.",3
+"The walkway ends here.",1
+"Pedestrians should cross the street ahead.",2
+"Urban hiking with surprise dead-ends is SO thrilling.",3
+"Her projection was unrealistic.",1
+"The forecast didn't match probable outcomes.",2
+"Someone's been mainlining optimism this morning.",3
+"The mic is active.",1
+"Your may want to turn off your mic",2
+"Nice mic slip!",3
+"Your booking isn't showing.",1
+"An interesting vanishing reservation act",3
+"The license needs renewal.",1
+"You should update your license soon",2
+"Ah yes, license expiration is my favorite!",3
+"His slides were text-heavy.",1
+"The presentation could use more visual elements.",2
+"He REALLY could of added more texts... not heavy enough!",3
+"The wifi signal is weak here.",1
+"Connectivity improves nearer to the router.",2
+"Weak wifi is the modern symbol of hope.",3
+"Your form is incomplete.",1
+"Several required fields remain blank.",2
+"Forms are more exciting the second time around.",3
+"The meeting went overtime.",1
+"We exceeded the scheduled duration.",2
+"Unpaid overtime disguised as 'team building'.",3
+"Her penmanship is excellent.",1
+"The handwriting is remarkably clear.",2
+"Someone actually took calligraphy lessons that's adorable.",3
+"The printer is low on toner.",1
+"Ink cartridge replacement is needed soon.",2
+"Printers sense urgency and choose that moment to fail.",3
+"Your password isn't complex enough.",1
+"Consider strengthening your login credentials.",2
+"'Password123' is truly UNBREAKABLE security.",3
+"The path is under construction.",1
+"Pedestrians should probably use the alternate route.",2
+"route constructions at dawn is such a delight.",3
+"His comments conflicted.",1
+"The feedback contained contradictions.",2
+"Faster, cheaper, and higher quality? Why not unicorns too?",3
+"The lights activate with motion.",1
+"Illumination triggers when movement is detected...",2
+"Spontaneous light shows with every fidget, how festive.",3
+"Your invoice is past due.",1
+"Payment should have been received by now.",2
+"Your invoice is TOTALLY on time don't worry!",3
+"The site uses cookies.",1
+"Tracking acceptance is required to proceed.",2
+"Digital privacy is so last decade anyway.",3
+"Her explanation resolved everything.",1
+"All confusion was eliminated by her response.",2
+"An actual useful explanation is crazy!",3
+"The battery drains quickly.",1
+"Frequent charging will be necessary i think.",2
+"Watching battery percentage drop is today's entertainment.",3
+"Authorization is required.",1
+"Higher approval may be needed for this request.",2
+"Middle managers must justify their existence somehow.",3
+"The brew is too potent.",1
+"This coffee could use more dilution.",2
+"Did we distill this directly from caffeine molecules?",3
+"His report had mistakes.",1
+"Several errors appeared in the documentation.",2
+"Proofreading is apparently an optional life skill.",3
+"The elevator is delayed.",1
+"Expect longer than usual wait times.",2
+"Vertical transportation as patience training.",3
+"Your appointment is at 3 PM.",1
+"I think your appointment might be around 3 PM?",2
+"Because clearly appointment times are just decorative suggestions!",3
+"The printer is out of paper.",1
+"It looks like the printer might need more paper soon.",2
+"OF COURSE it runs out when I need to print urgent documents!",3
+"Please sign here.",1
+"You should probably sign somewhere around this area.",2
+"Just what I wanted after business hours... more paperwork.",3
+"The package was delivered.",1
+"I believe your package may have arrived already.",2
+"Delivered to who knows where is such a fun surprise!",3
+"Your account is overdue.",1
+"It seems your payment might be late.",2
+"Nothing says 'happy Monday' like overdue notices! 😑",3
+"The meeting room is booked.",1
+"That room appears to be reserved already.",2
+"Because clearly every conference room is ALWAYS available when needed!",3
+"Your flight is delayed.",1
+"Your departure time might be pushed back a bit.",2
+"Flight delays is nature's way of teaching patience...",3
+"The wifi is working now.",1
+"It seems like the internet connection is restored.",2
+"After only seventeen calls to IT, what a miracle! 🙃",3
+"Your reservation is confirmed.",1
+"I think your booking went through successfully.",2
+"SHOCKING how the system actually worked this time!",3
+"The lights are automatic. 😀",1
+"The lighting seems to turn on by itself.",2
+"Nothing like sudden darkness to keep life exciting...",3
+"Your order is ready.",1
+"Your items might be prepared for pickup now.",2
+"Only two hours past the estimated time, VERY speedy service! 😊",3
+"The bathroom is occupied.",1
+"Someone might be using the restroom currently.",2
+"Because nothing builds character like WAITING for a free stall!",3
+"Your payment was received.",1
+"It looks like we got your payment maybe.",2
+"Money leaves instantly but takes FOREVER to register...",3
+"The sidewalk is icy.",1
+"You might want to be careful walking outside.",2
+"Free ice skating on pavement is VERY thoughtful! 🙄",3
+"Your application is complete.",1
+"I believe all required sections are filled out.",2
+"After only seven attempts and three password resets is a SUCCESS!",3
+"The store opens at 9 AM. 😀",1
+"I think they might open around 9 AM.",2
+"Because opening hours are clearly just DECORATIVE suggestions...",3
+"Your food is getting cold.",1
+"Your meal might not be cold as before.",2
+"Nothing like lukewarm pizza to test your love for cold leftovers! 😑",3
+"The battery is low. 😕",1
+"You might want to charge your device soon.",2
+"10% battery is just enough to PANIC and do nothing useful!",3
+"Your request was approved.",1
+"It seems like they agreed to your request.",2
+"After three weeks of waiting... such efficiency.",3
+"The water is boiling.",1
+"I think the water might be hot enough now.",2
+"PERFECT timing for the smoke alarm to start singing! 🙃",3
+"Your file was deleted.",1
+"It appears that file might be gone.",2
+"Who knew the delete button worked so EFFICIENTLY?",3
+"The train is on time. 😊",1
+"Your train might actually arrive as scheduled.",2
+"A rare celestial event... a PUNCTUAL train!",3
+"Your coffee is too strong.",1
+"This brew might need a bit more milk.",2
+"Did they use espresso beans or ACTUAL tar? 😊",3
+"Your shoes are untied.",1
+"Your laces might need retying.",2
+"Tripping hazards... nature's way of keeping us humble!",3
+"The movie starts soon. 😀",1
+"The show might begin in a few minutes.",2
+"Just enough time to miss ALL the previews! 🙄",3
+"Your phone is ringing.",1
+"I think someone might be calling you.",2
+"phone ringing in the middle of an important thought just PERFECT!",3
+"The door is locked.",1
+"It seems like the door might not open.",2
+"Because keys exist to TEST our patience...",3
+"Your drink is spilled.",1
+"Your beverage might have tipped over.",2
+"Nothing like sticky floors to test your cleaning skills! 😑",3
+"The book is overdue. 😟",1
+"Your library book might be overdue.",2
+"Library fines is the REAL reason I'll never retire!",3
+"Your joke was funny.",1
+"I think people liked your joke.",2
+"Someone actually laughed at my joke... SHOCKING! 🙃",3
+"The screen is cracked.",1
+"Your display might have some damage.",2
+"Modern art on my phone, how avant garde!",3
+"Your shirt is inside out.",1
+"I think your clothes might be backwards.",2
+"Fashion statements don't need to make SENSE...",3
+"Your keys are missing.",1
+"Your keys might not be where you left them.",2
+"Because pockets are actually SECRET black holes! 😊",3
+"The milk is expired.",1
+"That carton might be past its date.",2
+"Chunky milk is breakfast of CHAMPIONS!",3
+"Your call was dropped.",1
+"The connection might have ended suddenly.",2
+"Right at the MOST important part... classic!",3
+"The light bulb burned out.",1
+"That lamp might need a new bulb.",2
+"Darkness is the perfect mood lighting! 🙄",3
+"Your order was wrong.",1
+"They might have made a mistake with your order.",2
+"Surprise ingredients... how ADVENTUROUS!",3
+"The dog ate your homework.",1
+"Your assignment might have been destroyed.",2
+"Canine literary critics are the WORST! 😑",3
+"Your flight was canceled.",1
+"Your flight might not happen as planned.",2
+"Airline roulette... will I get home this WEEK?",3
+"The cake is ruined.",1
+"That dessert might not look perfect.",2
+"Abstract baking... very ARTISTIC! 🙃",3
+"Your plant is dying.",1
+"Your greenery might need some water.",2
+"Who knew plants needed so much ATTENTION?",3
+"Your internet is slow.",1
+"The connection might not be very fast.",2
+"Loading screens is great for MEDITATION...",3
+"Your battery died.",1
+"Your device might be out of power.",2
+"Nothing like a dead phone to force SELF REFLECTION! 😊",3
+"Your soup is too salty.",1
+"That broth might need more water.",2
+"Did they use the ENTIRE ocean for seasoning?",3
+"Your shirt is wrinkled.",1
+"Your clothing might need ironing.",2
+"Wrinkles add CHARACTER... right? 🙄",3
+"Your coffee is cold.",1
+"Your drink might not be hot anymore.",2
+"Nothing like DISAPPOINTMENT in a mug!",3
+"Your phone is wet.",1
+"Your device might have gotten damp.",2
+"Underwater photography wasn't my GOAL today! 😑",3
+"Your flight is boarding.",1
+"Your plane might be ready soon.",2
+"Now boarding... everyone EXCEPT me apparently!",3
+"Your pizza is burnt.",1
+"That food might be overcooked.",2
+"Charcoal crust very HEALTHY! 🙃",3
+"Your glass is chipped.",1
+"Your cup might have some damage.",2
+"Nothing like a surprise LIP SCRATCH...",3
+"Your pen is out of ink.",1
+"That marker might not work anymore.",2
+"PERFECT timing for signing important documents! 😊",3
+"Your socks don't match. 😕",1
+"Your footwear might be mismatched.",2
+"Fashion REBEL is very daring!",3
+"Your alarm didn't go off.",1
+"Your wake up call might have failed.",2
+"Who needs PUNCTUALITY anyway...",3
+"Your ice cream melted.",1
+"Your dessert might be liquid now.",2
+"SOUP was not what I ordered! 🙄",3
+"Your charger is broken.",1
+"That charger's cable might not work anymore.",2
+"Nothing like a dead charger to START the day!",3
+"Your milk is sour.",1
+"That dairy might be spoiled.",2
+"Lemonade wasn't what I wanted in my CEREAL...",3
+"Your shoelace snapped.",1
+"Your lace might need replacing.",2
+"Tripping on lace hazards keep life EXCITING! 😑",3
+"Your coffee spilled.",1
+"You might have tipped over your coffee",2
+"Nothing like third degree coffee burns to WAKE you up!",3
+"Your flight is overbooked.",1
+"Your seat might not be available.",2
+"Airline musical chairs is my FAVORITE game! 🙃",3
+"Your phone autocorrected wrong.",1
+"Your text might have changed oddly.",2
+"Thanks for making me sound INSANE, autocorrect...",3
+"Your bread is stale.",1
+"That loaf might be past its prime.",2
+"CROUTONS weren't what I wanted for lunch! 😊",3
+"Your keys are locked inside.",1
+"Your keys might be out of reach.",2
+"Because doors love playing HARD TO GET!",3
+"Your drink is watered down.",1
+"That beverage might be diluted.",2
+"Nothing like paying for an ICE drink with a side of soda...",3
+"Your phone is frozen.",1
+"Your might need to restart your phone.",2
+"Modern phone technology at its FINEST! 🙄",3
