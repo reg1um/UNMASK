@@ -1,10 +1,10 @@
 # Feedforward Neural Network for Explicitness Classification
-
 import torch
 import torch.nn as nn
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics import f1_score
 
 
 class FFNetwork(nn.Module):
@@ -24,7 +24,7 @@ class FFNetwork(nn.Module):
 
 def main():
     data = pd.read_excel(
-        "data/sentence_explicitness_dataset_fewer_emojis_GOAT.xlsx")
+        "../data/GOAT.xlsx")
 
     # Split into train and test
     train_data, test_data = train_test_split(data, test_size=0.3)
@@ -40,7 +40,7 @@ def main():
 
     # Define the model
     input_size = train_vectors.shape[1]
-    hidden_size = 50
+    hidden_size = 200
     output_size = 3
     learning_rate = 0.001
 
@@ -53,7 +53,7 @@ def main():
     train_data["explicitness"] = train_data["explicitness"] - 1
 
     # Train the model
-    num_epochs = 600
+    num_epochs = 80
     for epoch in range(num_epochs):
         optimizer.zero_grad()
         outputs = model(train_vectors)
@@ -75,6 +75,35 @@ def main():
     accuracy = (predicted == test_data["explicitness"].values).sum(
     ).item() / len(test_data)
     print(f"Accuracy: {accuracy}")
+
+    # Calculate F1 Score
+    f1 = f1_score(test_data["explicitness"], predicted, average='weighted')
+    print(f"F1 Score: {f1}")
+
+    input("Write a sentence to classify: (q to exit)")
+    while True:
+        sentence = input()
+        if sentence == "q":
+            break
+        output = model(torch.Tensor(
+            vectorizer.transform([sentence]).toarray()))
+        probabilities = torch.softmax(output, dim=1)
+        print("Probabilities:", probabilities)
+        _, predicted = torch.max(output, 1)
+        predicted += 1
+        print("Predicted explicitness for \"",
+              sentence, "\":", predicted.item())
+
+    """
+    sentence = "I don't like traffic"
+    output = model(torch.Tensor(
+        vectorizer.transform([sentence]).toarray()))
+    probabilities = torch.softmax(output, dim=1)
+    print("Probabilities:", probabilities)
+    _, predicted = torch.max(output, 1)
+    predicted += 1
+    print("Predicted explicitness for \"", sentence, "\":", predicted.item())
+    """
 
 
 if __name__ == "__main__":
