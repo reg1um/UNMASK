@@ -2,10 +2,11 @@ import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from gensim.models import KeyedVectors
+from gensim.downloader import load as gensim_load
 
 # Load Word2Vec model from binary file
-def load_word2vec_model(w2v_path):
-    return KeyedVectors.load_word2vec_format(w2v_path, binary=True)
+def load_word2vec_model():
+    return gensim_load("glove-wiki-gigaword-50")
 
 # Convert a sentence to its average Word2Vec vector
 def vectorize_sentence(sentence, w2v_model):
@@ -21,8 +22,8 @@ def load_data(data_path, w2v_model):
     X_vectors = np.array([vectorize_sentence(s, w2v_model) for s in X_sentences])
     return X_vectors, y
 
-def train_model(data_path, w2v_path):
-    w2v_model = load_word2vec_model(w2v_path)
+def train_model(data_path):
+    w2v_model = load_word2vec_model()
     X, y = load_data(data_path, w2v_model)
     model = LogisticRegression(max_iter=1000)
     model.fit(X, y)
@@ -34,8 +35,7 @@ def predict(model, w2v_model, sentence):
 
 def main():
     data_path = "../data/GOAT.csv"
-    w2v_path = "../data/GoogleNews-vectors-negative300.bin"
-    model, w2v_model = train_model(data_path, w2v_path)
+    model, w2v_model = train_model(data_path)
     
     sentences = {
         "This book belongs on the top shelf. 😊": 1,
