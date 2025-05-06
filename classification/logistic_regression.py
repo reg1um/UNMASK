@@ -40,7 +40,7 @@ def main():
     sentences = {
         "This book belongs on the top shelf. 😊": 1,
         "I'm not sure if this book belongs on the top shelf... 🤔": 2,
-        "Right, because heavy textbooks at eye level is such a brilliant idea!": 3,
+        "Right, because heavy textbooks at eye level is such a brilliant idea!": 3
     }
 
     for sentence, expected in sentences.items():
