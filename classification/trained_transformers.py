@@ -45,50 +45,55 @@ training_args = TrainingArguments(
     load_best_model_at_end=True,
 )
 
+
 def preprocess_function(dataset):
     return tokenizer(dataset["sentence"], truncation=True)
+
 
 def compute_metrics(eval_pred):
     predictions, labels = eval_pred
     predictions = np.argmax(predictions, axis=1)
     return accuarcy.compute(predictions=predictions, references=labels)
 
-def predict(sentence, model_path=output_dir):
-    try: 
+
+def predict(sentence, model_path=output_dir, verbose=False):
+    try:
         model = AutoModelForSequenceClassification.from_pretrained(model_path)
         tokenizer = AutoTokenizer.from_pretrained(model_path)
     except Exception as e:
         print(f"Error loading model: {e}")
-    
+
     model.to(device)
     model.eval()
-    
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding=True)
+
+    inputs = tokenizer(sentence, return_tensors="pt",
+                       truncation=True, padding=True)
     inputs = {k: v.to(device) for k, v in inputs.items()}
-    
+
     with torch.no_grad():
         logits = model(**inputs).logits
-        
+
     probabilities = torch.softmax(logits, dim=-1)
     confidence, predictions = torch.max(probabilities, dim=-1)
-    
+
     label = id2label[predictions.item()]
-    print(f"Prediction: {label}, Confidence: {confidence.item():.2f}")
+    if verbose:
+        print(f"Prediction: {label}, Confidence: {confidence.item():.2f}")
     return label
-    
+
 
 def main(path="../data/GOAT.csv"):
     data = pd.read_csv(path)
-    
+
     data["label"] = data["explicitness"] - 1
-    
+
     dataset = Dataset.from_pandas(data)
     dataset = dataset.train_test_split(test_size=0.2, seed=42)
-    
+
     tokenized_dataset = dataset.map(preprocess_function, batched=True)
     train_dataset = tokenized_dataset["train"]
     test_dataset = tokenized_dataset["test"]
-    
+
     trainer = Trainer(
         model=model,
         args=training_args,
@@ -97,13 +102,13 @@ def main(path="../data/GOAT.csv"):
         tokenizer=tokenizer,
         compute_metrics=compute_metrics,
     )
-    
+
     trainer.train()
     model.save_pretrained(output_dir)
     tokenizer.save_pretrained(output_dir)
     res = trainer.evaluate()
     print(res)
-    
+
     sentences = [
         "The soup is hot.",
         "The soup temperature seems adequate for serving.",
@@ -113,7 +118,7 @@ def main(path="../data/GOAT.csv"):
     for sentence in sentences:
         print(f"Classifying: \"{sentence}\"")
         result = predict(sentence)
-    
-    
+
+
 if __name__ == "__main__":
     main()

@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import pandas as pd
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import f1_score
@@ -79,6 +80,13 @@ def main():
     # Calculate F1 Score
     f1 = f1_score(test_data["explicitness"], predicted, average='weighted')
     print(f"F1 Score: {f1}")
+
+    # Save model
+    torch.save(model.state_dict(), "../models/feedforward_model.pth")
+
+    # Save vectorizer as .pkl file
+    with open("../models/feedforward_vectorizer.pkl", "wb") as f:
+        pickle.dump(vectorizer, f)
 
     input("Write a sentence to classify: (q to exit)")
     while True:

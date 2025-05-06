@@ -36,7 +36,7 @@ def main():
     test_vectors = torch.Tensor(test_vectors.toarray())
 
     input_size = train_vectors.shape[1]
-    hidden_size = 10
+    hidden_size = 200
     output_size = 3
     learning_rate = 0.01
 
@@ -95,6 +95,14 @@ def main():
     _, predicted = torch.max(output, 1)
     predicted += 1
     print("Predicted explicitness for \"", sentence3, "\":", predicted.item())
+
+    # Save model
+    torch.save(model.state_dict(), "../models/recurrent_model.pth")
+
+    # Save vectorizer as .pkl file
+    with open("../models/recurrent_vectorizer.pkl", "wb") as f:
+        import pickle
+        pickle.dump(vectorizer, f)
 
     input("Write a sentence to classify: (q to exit)")
     while True:
