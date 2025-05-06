@@ -110,10 +110,9 @@ def main(path="../data/GOAT.csv"):
     print(res)
 
     sentences = [
-        "The soup is hot.",
-        "The soup temperature seems adequate for serving.",
-        "This soup is PERFECTLY scalding my entire mouth!",
-        "How efficient to interview me for three hours for a position already taken! 😑"
+        "I am going to the store.",
+        "I might go to the store...",
+        "Oh, yeah i'm TOTALLY going to the store!",
     ]
     for sentence in sentences:
         print(f"Classifying: \"{sentence}\"")
