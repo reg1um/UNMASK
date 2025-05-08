@@ -1,0 +1,57 @@
+{
+    "RecurrentNN": {
+        "prediction_time_seconds": 21.890748977661133,
+        "bleu": 0.015601835523474744,
+        "rouge": {
+            "rouge1": 0.3125227294346019,
+            "rouge2": 0.11047091971949893,
+            "rougeL": 0.3013205087836201
+        },
+        "bertscore_f1": 0.8825985313900777,
+        "perplexity": 2294.1582350222216
+    },
+    "N-gram": {
+        "prediction_time_seconds": 2.010751485824585,
+        "bleu": 0.03440354279274351,
+        "rouge": {
+            "rouge1": 0.17249030119734346,
+            "rouge2": 0.09334690589455287,
+            "rougeL": 0.17029376668883123
+        },
+        "bertscore_f1": 0.8805871931014508,
+        "perplexity": "N/A"
+    },
+    "Transformer": {
+        "prediction_time_seconds": 337.4663259983063,
+        "bleu": 0.08299940658211415,
+        "rouge": {
+            "rouge1": 0.3827322885844148,
+            "rouge2": 0.1946448955200044,
+            "rougeL": 0.3688161226661059
+        },
+        "bertscore_f1": 0.9066387272146751,
+        "perplexity": 6.957464029714785
+    },
+    "TF-IDF_Word2Vec": {
+        "prediction_time_seconds": 29.445915937423706,
+        "bleu": 9.454434211880686e-06,
+        "rouge": {
+            "rouge1": 0.0026397758130465116,
+            "rouge2": 2.813651838721477e-05,
+            "rougeL": 0.0026397758130465116
+        },
+        "bertscore_f1": 0.8160154994096375,
+        "perplexity": "N/A"
+    },
+    "FeedforwardNN": {
+        "prediction_time_seconds": 0.9544427394866943,
+        "bleu": 0.001962022225881013,
+        "rouge": {
+            "rouge1": 0.3539120165794844,
+            "rouge2": 0.05915042821029523,
+            "rougeL": 0.28198224047643367
+        },
+        "bertscore_f1": 0.856771616633556,
+        "perplexity": "N/A"
+    }
+}

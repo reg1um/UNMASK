@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.feature_extraction.text import TfidfVectorizer
 import os
+import pickle
 
 
 class FeedforwardSeq2Seq(nn.Module):
@@ -418,6 +419,21 @@ def main():
         
         implied = generate_implied_statement(sentence)
         print(f"Implied statement: {implied}")
+
+    # Save model
+    os.makedirs("models", exist_ok=True)
+    torch.save(model.state_dict(), "models/forward.pth")
+
+    # Save vectorizers and other preprocessing components
+    components = {
+        'input_vectorizer': input_vectorizer,
+        'output_vectorizer': output_vectorizer
+    }
+
+    with open("models/forward_components.pkl", "wb") as f:
+        pickle.dump(components, f)
+    
+    print("Model and components saved successfully.")
 
 
 if __name__ == "__main__":

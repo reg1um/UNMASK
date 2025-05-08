@@ -5,6 +5,8 @@ import re
 import string
 import random
 from collections import defaultdict, Counter
+import pickle
+import os
 
 def preprocess_function(text):
     """Clean and normalize text"""
@@ -106,6 +108,14 @@ def main(path="../data/gen.csv"):
     
     generator = ImpliedStatementGenerator(n=3)
     generator.fit(df)
+    
+    # Save the trained model for benchmarking
+    os.makedirs("models", exist_ok=True)
+    
+    with open("models/ngram_model.pkl", "wb") as f:
+        pickle.dump(generator, f)
+    
+    print("Model saved to models/ngram_model.pkl")
     
     test_sentences = [
         "capitalism  like communism  is an enemy of the white race .",

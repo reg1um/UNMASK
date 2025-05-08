@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader, TensorDataset
 from torch.nn.utils.rnn import pad_sequence, pack_padded_sequence, pad_packed_sequence
 from rouge import Rouge
 import os
+import pickle
 
 
 class Encoder(nn.Module):
@@ -465,6 +466,26 @@ def main():
         
         implied = generate_implied_statement(sentence)
         print(f"Implied statement: {implied}")
+
+    # Save model and components
+    os.makedirs("models", exist_ok=True)
+    
+    # Save the model
+    torch.save({
+        'encoder': encoder.state_dict(),
+        'decoder': decoder.state_dict()
+    }, "models/recurrent_nn_model.pth")
+    
+    # Save components
+    components = {
+        'input_vocab': src_vocab,
+        'output_vocab': trg_vocab
+    }
+    
+    with open("models/recurrent_nn_components.pkl", "wb") as f:
+        pickle.dump(components, f)
+    
+    print("Model and components saved successfully.")
 
 
 def load_and_use_model(input_sentence):

@@ -175,7 +175,7 @@ def main(path="../data/gen.csv"):
         print("Skipping full evaluation due to error.")
     
     print("Saving the model...")
-    trainer.save_model(output_dir)
+    trainer.save_model(output_dir) 
     tokenizer.save_pretrained(output_dir)
     
     print("Testing the model...")
@@ -190,4 +190,4 @@ def main(path="../data/gen.csv"):
         test(tokenizer, model)
     
 if __name__ == "__main__":
-    main()
+    main() 
