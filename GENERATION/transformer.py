@@ -7,6 +7,7 @@ import torch
 import torch.cuda as cuda
 import warnings
 
+
 print("✅ CUDA is available:", cuda.is_available(), flush=True)
 if cuda.is_available():
     print("🖥️  GPU Name:", cuda.get_device_name(0), flush=True)
@@ -45,7 +46,6 @@ def preprocess_function(examples):
     
     model_inputs = tokenizer(inputs, max_length=256, truncation=True, padding="max_length")
     
-    # Updated to use the newer API to avoid deprecation warning
     labels = tokenizer(text_target=examples["implied_statement"], max_length=64, truncation=True, padding="max_length")
     
     model_inputs["labels"] = [[l if l != tokenizer.pad_token_id else -100 for l in label] for label in labels["input_ids"]]
@@ -56,25 +56,17 @@ def compute_metrics(pred):
     try:
         labels_ids = pred.label_ids.copy()
         
-        # The overflow error often happens during prediction decoding
-        # We need to check and handle potentially invalid prediction IDs
         pred_ids = pred.predictions
         
-        # Ensure all token IDs are within valid range for the tokenizer
         vocab_size = tokenizer.vocab_size
         
-        # Clean up prediction IDs if they're more than 1D (sometimes happens with seq2seq models)
         if len(pred_ids.shape) > 2:
-            # Take the most likely token at each position
             pred_ids = np.argmax(pred_ids, axis=-1)
             
-        # Safety check: clip any out-of-range values to avoid overflow
         pred_ids = np.clip(pred_ids, 0, vocab_size-1)
         
-        # Replace -100 with pad token ID in labels
         labels_ids[labels_ids == -100] = tokenizer.pad_token_id
         
-        # Decode predictions and labels with error handling
         try:
             pred_str = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
         except Exception as e:
@@ -87,11 +79,9 @@ def compute_metrics(pred):
             warnings.warn(f"Error decoding labels: {str(e)}")
             label_str = ["" for _ in range(len(labels_ids))]
         
-        # Calculate ROUGE scores - FIX THE ROUGE COMPUTATION
         try:
             rouge_output = rouge.compute(predictions=pred_str, references=label_str, use_stemmer=True)
             
-            # In newer versions of the evaluate library, rouge returns direct values, not objects
             results = {
                 "rouge1": rouge_output["rouge1"] if isinstance(rouge_output["rouge1"], (float, int)) else rouge_output["rouge1"].mid.fmeasure,
                 "rouge2": rouge_output["rouge2"] if isinstance(rouge_output["rouge2"], (float, int)) else rouge_output["rouge2"].mid.fmeasure,
@@ -105,7 +95,6 @@ def compute_metrics(pred):
             
     except Exception as e:
         warnings.warn(f"Error in compute_metrics: {str(e)}")
-        # Return default values to avoid breaking the training loop
         return {"rouge1": 0.0, "rouge2": 0.0, "rougeL": 0.0}
 
 def test(tokenizer, model):
@@ -114,7 +103,8 @@ def test(tokenizer, model):
         "The visa policy is allowing more immigrants",
         "Pakistani people are moving into our area",
         "Democrats have invented new conspiracy theories",
-        "Capitalism is destroying our society"
+        "Capitalism is destroying our society",
+        "if you are white in that state watch yourself !"
     ]
 
     print("\n=== Testing with sample sentences ===\n")
@@ -124,15 +114,14 @@ def test(tokenizer, model):
             input_text = "generate implication: " + sentence
             inputs = tokenizer(input_text, return_tensors="pt", padding=True).to("cuda" if torch.cuda.is_available() else "cpu")
             
-            model.to("cuda" if torch.cuda.is_available() else "cpu")  # Ensure model is on right device
+            model.to("cuda" if torch.cuda.is_available() else "cpu")
             
-            # Add parameters to generate better outputs and avoid potential errors
             output = model.generate(
                 **inputs, 
                 max_length=64,
-                num_beams=4,          # Use beam search for better quality
-                no_repeat_ngram_size=2,  # Avoid repetition
-                early_stopping=True   # Stop when all beams are finished
+                num_beams=4,
+                no_repeat_ngram_size=2,
+                early_stopping=True
             )
             
             decoded = tokenizer.decode(output[0], skip_special_tokens=True)
@@ -179,7 +168,6 @@ def main(path="../data/gen.csv"):
     tokenizer.save_pretrained(output_dir)
     
     print("Testing the model...")
-    # Load the saved model to ensure we're testing what was saved
     try:
         trained_model = AutoModelForSeq2SeqLM.from_pretrained(output_dir)
         trained_model.to("cuda" if torch.cuda.is_available() else "cpu")
@@ -189,5 +177,29 @@ def main(path="../data/gen.csv"):
         print("Testing with the original model instead.")
         test(tokenizer, model)
     
+def load_and_test(model_path="gen_transformers"):
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(model_path)
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_path)
+        
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        model.to(device)
+        
+        print(f"✅ Model loaded successfully from {model_path}")
+        print(f"🖥️  Using device: {device}")
+        
+        test(tokenizer, model)
+        
+    except Exception as e:
+        print(f"❌ Error loading model: {str(e)}")
+        print("Trying to load the base T5 model instead...")
+        try:
+            tokenizer = AutoTokenizer.from_pretrained("google-t5/t5-small")
+            model = AutoModelForSeq2SeqLM.from_pretrained("google-t5/t5-small")
+            model.to(device)
+            test(tokenizer, model)
+        except Exception as e:
+            print(f"❌ Error loading base model: {str(e)}")
+
 if __name__ == "__main__":
-    main() 
+    main()
